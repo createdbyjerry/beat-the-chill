@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" class="ds">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beat the Chill — Design System</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪵</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+</head>
+<body class="ds">
+  <header class="ds-header">
+    <div class="ds-header-inner panel">
+      <div>
+        <div class="eyebrow">Design system</div>
+        <h1 class="title-xl">Beat the Chill</h1>
+        <p class="subtitle">Tokens and components used by the game UI. Colors and sizes below are read live from <code>tokens/tokens.json</code>.</p>
+      </div>
+      <a class="cta-btn ds-link-btn" href="./">Play the game</a>
+    </div>
+  </header>
+
+  <main class="ds-main">
+    <section class="ds-section" aria-labelledby="sec-color">
+      <h2 id="sec-color" class="ds-h2">Color</h2>
+      <p class="ds-lede">Primitive palette. Click a swatch to copy its variable.</p>
+      <div class="ds-swatches" data-group="color"></div>
+    </section>
+
+    <section class="ds-section" aria-labelledby="sec-semantic">
+      <h2 id="sec-semantic" class="ds-h2">Semantic roles</h2>
+      <p class="ds-lede">Aliases components should reach for first.</p>
+      <div class="ds-swatches" data-group="semantic"></div>
+    </section>
+
+    <section class="ds-section" aria-labelledby="sec-type">
+      <h2 id="sec-type" class="ds-h2">Typography</h2>
+      <p class="ds-lede">Inter, 400–800. One family, contrast through weight and size.</p>
+      <div class="ds-type panel">
+        <div class="ds-type-row"><span class="ds-meta">.title-xl · 800</span><div class="title-xl">Beat the Chill</div></div>
+        <div class="ds-type-row"><span class="ds-meta">#timer-value · 700 / 24</span><div id="ds-timer" class="ds-num-lg">01:23.4</div></div>
+        <div class="ds-type-row"><span class="ds-meta">#total-count · 700 / 20</span><div class="ds-num-md">9 / 14</div></div>
+        <div class="ds-type-row"><span class="ds-meta">.subtitle · 400 / 16</span><div class="subtitle">After a grizzly shredded Jack's clothes, he must race the setting sun.</div></div>
+        <div class="ds-type-row"><span class="ds-meta">.steps · 400 / 15</span>
+          <ol class="steps"><li>Sprint across the curved earth.</li><li>Swing your axe.</li></ol>
+        </div>
+        <div class="ds-type-row"><span class="ds-meta">.eyebrow · 500 / 12</span><div class="eyebrow">All wood collected</div></div>
+      </div>
+    </section>
+
+    <section class="ds-section" aria-labelledby="sec-panel">
+      <h2 id="sec-panel" class="ds-h2">Panels &amp; root ornaments</h2>
+      <p class="ds-lede">Every <code>.panel</code> gets four corner roots from <code>ornaments.js</code>. Size variants come from the <code>ornament-*</code> token groups.</p>
+      <div class="ds-panels">
+        <figure class="ds-fig">
+          <div class="panel ds-panel-demo ds-panel-lg"><div class="eyebrow">Default</div><div class="ds-num-md">66 × 62</div></div>
+          <figcaption><code>.panel</code></figcaption>
+        </figure>
+        <figure class="ds-fig">
+          <div class="panel small-roots ds-panel-demo"><div class="eyebrow">Small</div><div class="ds-num-md">44 × 41</div></div>
+          <figcaption><code>.panel.small-roots</code></figcaption>
+        </figure>
+        <figure class="ds-fig">
+          <div class="panel hud-roots ds-panel-demo"><div class="eyebrow">HUD</div><div class="ds-num-md">34 × 32</div></div>
+          <figcaption><code>.panel.hud-roots</code></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="ds-section" aria-labelledby="sec-buttons">
+      <h2 id="sec-buttons" class="ds-h2">Buttons</h2>
+      <p class="ds-lede">The CTA thickens its stroke and grows a curl in the top-left corner on hover and focus; it turns pine green while pressed.</p>
+      <div class="ds-row panel">
+        <figure class="ds-fig"><button class="cta-btn">Start</button><figcaption>Rest</figcaption></figure>
+        <figure class="ds-fig"><button class="cta-btn ds-force-hover" tabindex="-1">Start</button><figcaption>Hover / focus</figcaption></figure>
+        <figure class="ds-fig"><button class="cta-btn ds-force-active" tabindex="-1">Start</button><figcaption>Pressed</figcaption></figure>
+      </div>
+      <div class="ds-row panel">
+        <figure class="ds-fig"><button class="padbtn" aria-label="Forward"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 7.5l5 5"/></svg></button><figcaption>Pad · rest</figcaption></figure>
+        <figure class="ds-fig"><button class="padbtn ds-force-pad-hover" tabindex="-1" aria-label="Forward"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 7.5l5 5"/></svg></button><figcaption>Pad · hover</figcaption></figure>
+        <figure class="ds-fig"><button class="padbtn is-pressed" tabindex="-1" aria-label="Chop">🪓</button><figcaption>Pad · pressed</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="ds-section" aria-labelledby="sec-feedback">
+      <h2 id="sec-feedback" class="ds-h2">Feedback</h2>
+      <p class="ds-lede">In-world feedback sits on the night scene, so it is previewed on <code>--scene-bg</code>.</p>
+      <div class="ds-night">
+        <figure class="ds-fig"><div class="ds-go">GO!</div><figcaption>Countdown</figcaption></figure>
+        <figure class="ds-fig"><div class="pickup-popup ds-static"><div class="plus-text">+1</div></div><figcaption>Wood pickup</figcaption></figure>
+        <figure class="ds-fig">
+          <div id="loading-bar-track" class="ds-bar"><div id="loading-bar-fill" style="width:62%"></div></div>
+          <figcaption>Loading bar</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="ds-section" aria-labelledby="sec-assets">
+      <h2 id="sec-assets" class="ds-h2">Image assets</h2>
+      <div class="ds-assets">
+        <figure class="ds-fig panel ds-asset"><img src="assets/img/beat-the-chill-cornerImg.png" alt="Root corner ornament" width="66" height="62"><figcaption><code>--root-img</code></figcaption></figure>
+        <figure class="ds-fig panel ds-asset"><img src="assets/img/beat-the-chill-cornerImg-bttn.png" alt="Button corner curl" width="16" height="16"><figcaption><code>--curl-img</code></figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ds-footer credits-line">Designed by Jerry Borunda</footer>
+
+  <div class="ds-toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/ornaments.js"></script>
+  <script src="assets/js/design-system.js"></script>
+</body>
+</html>

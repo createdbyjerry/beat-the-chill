@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beat the Chill</title>
+  <meta name="description" content="Race the setting sun: chop every tree and gather the wood before the freezing night.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪓</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- tokens.css is generated from tokens/tokens.json — load it before styles.css -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div id="app">
+  <div id="hud-top">
+    <div id="timer-block" class="panel hud-roots">
+      <div class="eyebrow">Time</div>
+      <div id="timer-value">00:00.0</div>
+    </div>
+  </div>
+
+  <div id="total-block" class="panel hud-roots">
+    <div class="eyebrow">Wood</div>
+    <div id="total-count">0 / 0</div>
+  </div>
+
+  <div id="touch-controls">
+    <div class="pad">
+      <button class="padbtn" id="btn-pause" title="Pause" aria-label="Pause">
+        <svg viewBox="0 0 20 20" fill="currentColor"><rect x="5" y="4" width="3.5" height="12" rx="0.5"/><rect x="11.5" y="4" width="3.5" height="12" rx="0.5"/></svg>
+      </button>
+      <button class="padbtn" id="btn-up" aria-label="Forward">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 7.5l5 5"/></svg>
+      </button>
+      <button class="padbtn" id="btn-left" aria-label="Turn left">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 5 7.5 10l5 5"/></svg>
+      </button>
+      <button class="padbtn" id="btn-down" aria-label="Back">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7.5 10 12.5l5-5"/></svg>
+      </button>
+      <button class="padbtn" id="btn-right" aria-label="Turn right">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 5 12.5 10l-5 5"/></svg>
+      </button>
+      <button class="padbtn" id="btn-chop" aria-label="Chop">🪓</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="loading-overlay">
+    <div class="overlay-card compact panel">
+      <div class="title-xl" style="font-size:clamp(22px,5vw,28px);">Loading</div>
+      <div id="loading-bar-track"><div id="loading-bar-fill"></div></div>
+      <div id="loading-progress-text">0 / 0 assets</div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="start-overlay">
+    <div class="overlay-card panel">
+      <div class="title-xl">Beat the Chill</div>
+      <div class="subtitle">After a grizzly shredded Jack's clothes, he must race the setting sun to survive the freezing night.</div>
+      <ol class="steps">
+        <li>Sprint across the curved earth.</li>
+        <li>Swing your axe to chop down every last tree.</li>
+        <li>Collect the fallen wood to use as fuel.</li>
+      </ol>
+      <div class="subtitle">Only by gathering all the wood can he finally spark a blazing fire and survive the chill.</div>
+      <div class="pause-keys">
+        <div class="eyebrow">Controls</div>
+        <b>W A S D</b> / Arrows: walk &amp; turn<br>
+        <b>Space</b>: chop<br>
+        <b>P</b> / <b>Esc</b>: pause<br>
+        <b>R</b>: restart
+      </div>
+      <button class="cta-btn" id="start-btn">Start</button>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="pause-overlay">
+    <div class="overlay-card compact panel">
+      <div class="title-xl" style="font-size:clamp(26px,6vw,40px);">Paused</div>
+      <div class="pause-keys">
+        <div class="eyebrow">Controls</div>
+        <b>W A S D</b> / Arrows: walk &amp; turn<br>
+        <b>Space</b>: chop<br>
+        <b>P</b> / <b>Esc</b>: pause<br>
+        <b>R</b>: restart
+      </div>
+      <button class="cta-btn" id="resume-btn">Resume</button>
+      <div class="credits-line" style="margin-top:20px;">Designed by Jerry Borunda</div>
+    </div>
+  </div>
+
+  <div id="win-bar" class="panel small-roots hidden">
+    <div class="win-bar-text">
+      <div class="eyebrow">All wood collected</div>
+      <div id="final-time">00:00.0</div>
+    </div>
+    <button class="cta-btn" id="restart-btn">Chop again</button>
+  </div>
+
+  <div id="go-text">GO!</div>
+  <div id="pickup-layer"></div>
+</div>
+
+<script src="assets/js/ornaments.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="assets/js/game.js"></script>
+</body>
+</html>

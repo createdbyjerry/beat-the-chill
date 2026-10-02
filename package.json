@@ -1,0 +1,16 @@
+{
+  "name": "beat-the-chill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Beat the Chill — a Three.js game prototype and its design system, hosted on GitHub Pages.",
+  "type": "module",
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "watch:tokens": "node scripts/build-tokens.mjs --watch",
+    "check:tokens": "node scripts/build-tokens.mjs --check",
+    "start": "npx --yes http-server . -p 8080 -c-1 -o"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

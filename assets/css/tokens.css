@@ -1,0 +1,61 @@
+/*
+ * GENERATED FILE — do not edit by hand.
+ * Source: tokens/tokens.json
+ * Rebuild: npm run build:tokens
+ */
+
+:root {
+  /* color — Primitive palette. Numbered suffixes are tints/shades of the base hue. */
+  --primary: #9C663E;
+  --primary-20: #5C3A21;
+  --primary-50: #D49A6A;
+  --primary-75: #F6D3B5;
+  --secondary: #6F9B69;
+  --secondary-20: #365A30;
+  --secondary-50: #A7C4A5;
+  --secondary-75: #DAEAD9;
+  --bg: #E4DDC3;
+  --bg-tint-15: #9E9175;
+  --bg-tint-50: #F7F4EB;
+  --contrast: #000000;
+  --contrast-5: #625050;
+  --contrast-10: #A4968C;
+  --contrast-20: #E6E3E3;
+  --scene-bg: #05060f;
+
+  /* semantic — Role-based aliases. Components should use these rather than primitives where a role exists. */
+  --text-hi: var(--primary-20);
+  --text-lo: var(--contrast-5);
+  --panel-bg: var(--bg);
+  --panel-line: var(--bg-tint-15);
+  --scrim: rgba(92, 58, 33, 0.55);
+
+  /* typography — Inter is loaded from Google Fonts in each HTML page. */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* asset — Image tokens. Paths are relative to assets/css/ (where tokens.css lives) and are wrapped in url() on build. */
+  --root-img: url('../img/beat-the-chill-cornerImg.png');
+  --curl-img: url('../img/beat-the-chill-cornerImg-bttn.png');
+
+  /* ornament — Default panel corner ornament size and offset (large panels, overlays). */
+  --root-w: 66px;
+  --root-h: 62px;
+  --root-x: -21px;
+  --root-y: -12px;
+}
+
+.panel.small-roots {
+  /* ornament-small — Small ornament variant, e.g. the win bar. */
+  --root-w: 44px;
+  --root-h: 41px;
+  --root-x: -14px;
+  --root-y: -8px;
+}
+
+.panel.hud-roots {
+  /* ornament-hud — HUD ornament variant for the timer and wood counter. */
+  --root-w: 34px;
+  --root-h: 32px;
+  --root-x: -11px;
+  --root-y: -7px;
+}
