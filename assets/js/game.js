@@ -1,14 +1,14 @@
 /**
  * Beat the Chill — game module (Three.js r160).
  * Loaded as an ES module from index.html; "three" resolves via the import map there.
- * 3D models are streamed from Supabase storage (see ASSET_BASE).
+ * 3D models live in this repo under assets/models/ (see ASSET_BASE).
  */
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 const CHARACTER_ANIM_SLOTS = ['idle', 'run', 'runBack', 'jump', 'chop', 'sit'];
-const ASSET_BASE =
-  'https://nuqolbrnwdymehykosvm.supabase.co/storage/v1/object/public/lumberjack%20chill%20assets/';
+// Resolved relative to this file, so it works locally and on GitHub Pages sub-paths.
+const ASSET_BASE = new URL('../models/', import.meta.url).href;
 const MODEL_URLS = {
   idle: ASSET_BASE + 'idle.glb',
   run: ASSET_BASE + 'running.glb',

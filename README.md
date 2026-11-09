@@ -46,6 +46,7 @@ The touch pad appears automatically on screens narrower than 860px or on touch d
 │   │   ├── game.js             # Three.js game module
 │   │   ├── ornaments.js        # Adds root corner ornaments to every .panel
 │   │   └── design-system.js    # Renders swatches from tokens.json
+│   ├── models/               # .glb models (character anims, tree, wood, fire)
 │   └── img/
 │       ├── beat-the-chill-cornerImg.png       # Panel corner root
 │       └── beat-the-chill-cornerImg-bttn.png  # CTA hover curl
@@ -57,7 +58,7 @@ The touch pad appears automatically on screens narrower than 860px or on touch d
 
 ### External assets
 
-- **3D models** (`.glb` character animations, tree, wood, fire) are streamed from Supabase storage. The base URL is `ASSET_BASE` near the top of `assets/js/game.js`.
+- **3D models** (`.glb` character animations, tree, wood, fire) live in `assets/models/` and are served by GitHub Pages alongside the game. `ASSET_BASE` near the top of `assets/js/game.js` points there.
 - **Three.js r160** loads from jsDelivr through the import map in `index.html`.
 - **Inter** loads from Google Fonts.
 
